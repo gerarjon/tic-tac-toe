@@ -7,6 +7,7 @@ import { Chat } from 'stream-chat-react';
 import Cookies from "universal-cookie"
 import { useState } from 'react';
 import JoinGame from './components/JoinGame';
+import SignIn from './pages/SignIn';
 
 function App() {
   const api_key= process.env.REACT_APP_API_KEY;
@@ -44,7 +45,7 @@ function App() {
     setIsAuth(false);
   }
   return (
-    <div className="App">
+    <div className="main">
       { isAuth ? (
         <Chat client={client}>
           <JoinGame />
@@ -52,8 +53,7 @@ function App() {
         </Chat>
       ) : (
         <>
-          <SignUp setIsAuth={setIsAuth}/>
-          <Login setIsAuth={setIsAuth}/>
+          <SignIn setIsAuth={setIsAuth} />
         </>
       )}
     </div>

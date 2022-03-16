@@ -20,8 +20,8 @@ const SignUp = ({setIsAuth}) => {
   };
 
   return (
-    <div className='container'>
-      <div style={{ fontSize: 20 }}>Sign Up</div>
+    <div>
+      <div style={{ fontSize: '2em' }}>Sign Up</div>
       
       {/* First Name */}
       <div className="field">
@@ -81,17 +81,17 @@ const SignUp = ({setIsAuth}) => {
             }} 
           />
         </div>
-        <div className='field'>
+      </div>
+      <div className='field'>
           <div className='control'>
             <button 
               onClick={signUp}
               className='button is-success'
             >
-              Submit
+              Sign Up
             </button>
           </div>
         </div>
-      </div>
     </div>
   )
 }

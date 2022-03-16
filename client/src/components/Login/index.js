@@ -22,8 +22,8 @@ const Login = ({setIsAuth}) => {
     });
   }
   return (
-    <div className='container'>
-      <div style={{ fontSize: 20 }}>Login</div>
+    <div>
+      <div style={{ fontSize: '2em' }}>Login</div>
 
       {/* Username */}
       <div className="field">
@@ -53,7 +53,8 @@ const Login = ({setIsAuth}) => {
             }} 
           />
         </div>
-        <div className='field'>
+      </div>
+      <div className='field'>
           <div className='control'>
             <button 
               onClick={login}
@@ -63,7 +64,6 @@ const Login = ({setIsAuth}) => {
             </button>
           </div>
         </div>
-      </div>
     </div>
   )
 };

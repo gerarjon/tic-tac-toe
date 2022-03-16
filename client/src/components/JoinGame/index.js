@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useChatContext } from 'stream-chat-react';
+import Game from '../Game';
+import { useChatContext, Channel } from 'stream-chat-react';
 
 const JoinGame = () => {
   const [opp, setOpp] = useState("");
@@ -24,8 +25,10 @@ const JoinGame = () => {
   return (
     <div className='container'>
       { channel ? ( 
-        <div>Game start</div>
-      ) : (
+        <Channel channel={channel}>
+            <Game channel={channel}/>
+        </Channel>
+        ) : (
         <div>
           <h1>Create Game</h1>
           <p>Logged in as: {client._user.name}</p>
@@ -43,7 +46,7 @@ const JoinGame = () => {
             </div>
           </div>
           <div className='control'>
-            <button className='button is-success'>Start</button>
+            <button onClick={createChannel} className='button is-success'>Start</button>
           </div>
         </div>
       )}

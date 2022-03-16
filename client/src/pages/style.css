@@ -1,0 +1,19 @@
+.login-container {
+  width: 80%;
+  margin: auto;
+}
+
+.login-side {
+  width: 80%;
+  margin: auto;
+  margin-top: 8em;
+}
+
+.login-container p {
+  padding-top: 0.5em;
+}
+
+.tictactoe-img {
+  position: relative;
+  margin-top: 8em;
+}
