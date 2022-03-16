@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
+import Cookies from "universal-cookie"
 
 const SignUp = () => {
+  const cookies = new Cookies();
   const [user, setUser] = useState(null);
 
   const signUp = () => {
-
-  }
+    Axios.post("http://localhost:3001/signup", user).then(res => {
+      const { token, userId, firstName, lastName, username, hashedPassword } = res.data;
+      cookies.set("token", token);
+      cookies.set("firstName", firstName);
+      cookies.set("lastName", lastName);
+      cookies.set("userId", userId);
+      cookies.set("username", username);
+      cookies.set("hashedPassword", hashedPassword);
+    });
+  };
 
   return (
     <div className='container'>
@@ -35,7 +46,7 @@ const SignUp = () => {
             placeholder='Last Name'
             type='text'
             onChange={(event) => {
-              setUser({ ...user, firstName: event.target.value });
+              setUser({ ...user, lastName: event.target.value });
             }} 
           />
         </div>
@@ -50,7 +61,7 @@ const SignUp = () => {
             placeholder='Username'
             type='text'
             onChange={(event) => {
-              setUser({ ...user, firstName: event.target.value });
+              setUser({ ...user, username: event.target.value });
             }} 
           />
         </div>
@@ -65,7 +76,7 @@ const SignUp = () => {
             placeholder='Password'
             type='text'
             onChange={(event) => {
-              setUser({ ...user, firstName: event.target.value });
+              setUser({ ...user, password: event.target.value });
             }} 
           />
         </div>
