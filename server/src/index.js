@@ -53,6 +53,11 @@ app.post("/login", async (req, res) => {
   }
 })
 
+// Default behavior: send every unmatched route request to the React app (in production)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 // Start API server
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
