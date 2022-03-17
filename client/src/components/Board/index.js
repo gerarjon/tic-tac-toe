@@ -39,7 +39,7 @@ const Board = ({result, setResult}) => {
   }
 
   channel.on((event) => {
-    if (event.type == "game-move" && event.user.id !== client.userID) {
+    if (event.type === "game-move" && event.user.id !== client.userID) {
       const currentPlayer = event.data.player === "X" ? "O" : "X";
       setPlayer(currentPlayer);
       setTurn(currentPlayer);
@@ -55,10 +55,10 @@ const Board = ({result, setResult}) => {
   const checkWin = () => {
     Patterns.forEach((currPattern) => {
       const firstPlayer = board[currPattern[0]]
-      if (firstPlayer == "") return
+      if (firstPlayer === "") return
       let foundWinningPattern = true;
       currPattern.forEach((index) => {
-        if (board[index] != firstPlayer) {
+        if (board[index] !== firstPlayer) {
           foundWinningPattern = false;
         }
       });
@@ -73,7 +73,7 @@ const Board = ({result, setResult}) => {
   const checkIfTie = () => {
     let filled = true;
     board.forEach((square) => {
-      if (square == "") {
+      if (square === "") {
         filled = false;
       }
     });
