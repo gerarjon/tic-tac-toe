@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Game from '../Game';
 import { useChatContext, Channel } from 'stream-chat-react';
+import './style.css'
 
 const JoinGame = () => {
   const [opp, setOpp] = useState("");
@@ -24,32 +25,34 @@ const JoinGame = () => {
 
   return (
     <div className='container'>
-      { channel ? ( 
-        <Channel channel={channel}>
-            <Game channel={channel}/>
-        </Channel>
-        ) : (
-        <div>
-          <h1>Create Game</h1>
-          <p>Logged in as: {client._user.name}</p>
+      <div className='game-container'>
+        { channel ? ( 
+          <Channel channel={channel}>
+              <Game channel={channel}/>
+          </Channel>
+          ) : (
+          <div>
+            <h1>Create Game</h1>
+            <p>Logged in as: {client._user.name}</p>
 
-          <div className='field'>
-            <label className='label'>Enter Opponent Username</label>
+            <div className='field'>
+              <label className='label'>Enter Opponent Username</label>
+              <div className='control'>
+                <input
+                  className='input'
+                  type="text" 
+                  placeholder="username of player" 
+                  onChange={(event) => {
+                    setOpp(event.target.value)}
+                }/>
+              </div>
+            </div>
             <div className='control'>
-              <input
-                className='input'
-                type="text" 
-                placeholder="username of player" 
-                onChange={(event) => {
-                  setOpp(event.target.value)}
-              }/>
+              <button onClick={createChannel} className='button is-success'>Join Game</button>
             </div>
           </div>
-          <div className='control'>
-            <button onClick={createChannel} className='button is-success'>Start</button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
