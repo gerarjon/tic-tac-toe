@@ -18,12 +18,12 @@ const SignIn = ({setIsAuth}) => {
             { (isLogPage) ?
               <>
                 <Login setIsAuth={setIsAuth} /> 
-                <p>Don't have an account? Sign up <span onClick={() => setIsLogPage(!isLogPage)}>here</span>.</p>
+                <p>Don't have an account? Sign up <span className="login-click" onClick={() => setIsLogPage(!isLogPage)}>here</span>.</p>
               </>  
               : 
               <>
                 <SignUp setIsAuth={setIsAuth} /> 
-                <p>Have an account? Login <span onClick={() => setIsLogPage(!isLogPage)}>here</span>.</p>
+                <p>Have an account? Login <span className="login-click" onClick={() => setIsLogPage(!isLogPage)}>here</span>.</p>
               </>
             }
           </div>

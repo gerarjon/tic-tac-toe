@@ -3,15 +3,21 @@
   margin: auto;
 }
 
+.login-container p {
+  padding-top: 0.5em;
+}
+
 .login-side {
   width: 80%;
   margin: auto;
   margin-top: 8em;
 }
 
-.login-container p {
-  padding-top: 0.5em;
+.login-click {
+  text-decoration: underline;
+  cursor: pointer;
 }
+
 
 .tictactoe-img {
   position: relative;
