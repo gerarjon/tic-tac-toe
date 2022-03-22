@@ -7,7 +7,7 @@ const SignUp = ({setIsAuth}) => {
   const [user, setUser] = useState(null);
 
   const signUp = () => {
-    Axios.post("/signup", user).then(res => {
+    Axios.post("tic-tac-toe/signup", user).then(res => {
       const { token, userId, firstName, lastName, username, hashedPassword } = res.data;
       cookies.set("token", token);
       cookies.set("firstName", firstName);
