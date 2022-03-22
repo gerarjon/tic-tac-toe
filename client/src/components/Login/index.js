@@ -8,7 +8,7 @@ const Login = ({setIsAuth}) => {
   const cookies = new Cookies();
 
   const login = () => {
-    Axios.post("tic-tac-toe/login", {
+    Axios.post("/login", {
       username,
       password,
     }).then(res => {
