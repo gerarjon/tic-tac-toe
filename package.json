@@ -8,7 +8,8 @@
   },
   "homepage": "https://gerarjon.github.io/tic-tac-toe",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
