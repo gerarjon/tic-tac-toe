@@ -8,6 +8,7 @@ dotenv.config()
 const PORT = process.env.PORT || 3001;
 const app = express();
 import * as path from 'path';
+const __dirname = path.resolve();
 
 
 // CORS Headers
