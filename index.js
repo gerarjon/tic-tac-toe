@@ -7,7 +7,8 @@ import dotenv from 'dotenv';
 dotenv.config()
 const PORT = process.env.PORT || 3001;
 const app = express();
-const path = require('path')
+import * as path from 'path';
+
 
 // CORS Headers
 app.use(cors());
