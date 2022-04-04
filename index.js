@@ -3,10 +3,11 @@ import cors from 'cors';
 import { StreamChat } from "stream-chat";
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 dotenv.config()
 const PORT = process.env.PORT || 3001;
 const app = express();
+const path = require('path')
 
 // CORS Headers
 app.use(cors());
