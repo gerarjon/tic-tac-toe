@@ -56,8 +56,14 @@ app.post("/login", async (req, res) => {
   }
 })
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Default behavior: send every unmatched route request to the React app (in production)
-app.use(express.static(path.join(__dirname, './client/build')));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 // Start API server
 app.listen(PORT, () => {
